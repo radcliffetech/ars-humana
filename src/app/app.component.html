@@ -1,3 +1,24 @@
-<div>
-  HELLO
+<nav class="bg-brand-dark text-brand-light p-4">
+  <div class="container mx-auto flex justify-between items-center">
+    <a
+      routerLink="/"
+      class="text-xl font-semibold transition-transform duration-200 hover:scale-100 active:scale-95"
+    >
+      <div class="flex items-center">
+        <img src="/assets/logo.jpg" alt="Site Logo" class="h-10 w-auto mr-3" />
+        <span class="text-xl font-bold">Ars Humana</span>
+      </div>
+    </a>
+    <div class="space-x-4">
+      <a routerLink="/seeds" class="text-brand-dark hover:text-brand-light">Seeds</a>
+      <a routerLink="/tattva" class="text-brand-dark hover:text-brand-light">Tattvas</a>
+      <a routerLink="/ontology" class="text-brand-dark hover:text-brand-light">Ontology</a>
+      <a routerLink="/glossary" class="text-brand-dark hover:text-brand-light">Glossary</a>
+      <a routerLink="/about" class="text-brand-dark hover:text-brand-light">About</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container py-6 mx-auto">
+  <router-outlet></router-outlet>
 </div>

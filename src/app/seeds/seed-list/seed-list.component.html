@@ -1,0 +1,14 @@
+<div class="space-y-6 p-6">
+  <nav class="text-sm text-gray-500 mb-4">
+    <a routerLink="/" class="hover:underline">Home</a>
+    <span class="mx-2">›</span>
+    <a routerLink="/seeds" class="hover:underline">Seeds</a>
+  </nav>
+  <h1 class="text-3xl font-bold">Seed Storehouse (बीजकोष)</h1>
+  <div *ngFor="let seed of seeds" class="bg-white p-4 rounded shadow hover:shadow-lg transition">
+    <a [routerLink]="['/seeds', seed.id]" class="block">
+      <h2 class="text-xl font-semibold">{{ seed.label }}</h2>
+      <p class="text-gray-700">{{ seed.description }}</p>
+    </a>
+  </div>
+</div>

@@ -1,0 +1,56 @@
+<div *ngIf="tattva" class="space-y-6">
+  <nav class="text-sm text-gray-500 mb-4">
+    <a routerLink="/" class="hover:underline">Home</a>
+    <span class="mx-2">›</span>
+    <a routerLink="/tattva" class="hover:underline">Tattvas</a>
+    <span class="mx-2">›</span>
+    <span class="text-gray-700 font-semibold">{{ tattva.label.english }}</span>
+  </nav>
+  <div class="flex items-center justify-between">
+    <h1 class="text-4xl font-bold text-gray-900">
+      {{ tattva.label.english }} ({{ tattva.label.devanagari }})
+    </h1>
+  </div>
+
+  <div class="text-6xl" [style.color]="tattva.color">{{ tattva.symbol }}</div>
+
+  <p class="text-xl italic text-gray-700">{{ tattva.archetype }}</p>
+  <p class="text-gray-800">{{ tattva.description }}</p>
+
+  <div class="flex flex-wrap gap-2">
+    <span
+      *ngFor="let tag of tattva.tags"
+      class="bg-gray-200 text-gray-800 text-xs font-medium px-2 py-1 rounded"
+    >
+      {{ tag }}
+    </span>
+  </div>
+
+  <div>
+    <h2 class="font-semibold text-gray-900 mb-1">Sound</h2>
+    <p class="text-gray-700">{{ tattva.sound }}</p>
+  </div>
+
+  <div>
+    <h2 class="font-semibold text-gray-900 mb-1">Positives</h2>
+    <p class="text-green-700">{{ tattva.positives }}</p>
+  </div>
+
+  <div>
+    <h2 class="font-semibold text-gray-900 mb-1">Negatives</h2>
+    <p class="text-red-700">{{ tattva.negatives }}</p>
+  </div>
+
+  <div>
+    <h2 class="font-semibold text-gray-900 mb-1">Shadow</h2>
+    <p class="text-purple-700">{{ tattva.shadow }}</p>
+  </div>
+
+  <div>
+    <h2 class="font-semibold text-gray-900 mb-1">Quote</h2>
+    <p class="text-gray-500 italic">Source: {{ tattva.quote.source }}</p>
+    <p class="text-lg font-serif text-gray-800">{{ tattva.quote.devanagari }}</p>
+    <p class="text-sm text-gray-600 italic">{{ tattva.quote.iast }}</p>
+    <p class="text-gray-700">“{{ tattva.quote.english }}”</p>
+  </div>
+</div>

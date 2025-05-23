@@ -1,0 +1,68 @@
+<div class="space-y-6">
+  <nav class="text-sm text-gray-500 mb-4">
+    <a routerLink="/" class="hover:underline">Home</a>
+    <span class="mx-2">›</span>
+    <a routerLink="/tattva" class="hover:underline">Tattvas</a>
+    <span class="mx-2">›</span>
+    <a routerLink="/tattva-graph" class="hover:underline">Tattva Graph</a>
+  </nav>
+  <h1 class="text-3xl font-bold mb-6">Tattva Graph</h1>
+  <div class="flex flex-1">
+    <aside class="w-64 p-4 border-r border-gray-300">
+      <div>
+        <h3 class="font-semibold mb-2">Highlight Groups</h3>
+        <label class="block mb-1">
+          <input
+            type="checkbox"
+            #mayaGroupCheckbox
+            (change)="toggleGroup('mayaGroup', mayaGroupCheckbox.checked)"
+          />
+          Māyā
+        </label>
+        <label class="block mb-1">
+          <input
+            type="checkbox"
+            #antahkaranaCheckbox
+            (change)="toggleGroup('antahkarana', antahkaranaCheckbox.checked)"
+          />
+          Antaḥkaraṇa
+        </label>
+        <label class="block mb-1">
+          <input
+            type="checkbox"
+            #jnenendriyasCheckbox
+            (change)="toggleGroup('jñānendriyas', jnenendriyasCheckbox.checked)"
+          />
+          Jñānendriyas
+        </label>
+
+        <label class="block mb-1">
+          <input
+            type="checkbox"
+            #karmendriyasCheckbox
+            (change)="toggleGroup('karmendriyas', karmendriyasCheckbox.checked)"
+          />
+          Karmendriyas
+        </label>
+
+        <label class="block mb-1">
+          <input
+            type="checkbox"
+            #tanmatrasCheckbox
+            (change)="toggleGroup('tanmatras', tanmatrasCheckbox.checked)"
+          />
+          Tanmātras
+        </label>
+        <label class="block mb-1">
+          <input
+            type="checkbox"
+            #mahabhutasCheckbox
+            (change)="toggleGroup('mahabhutas', mahabhutasCheckbox.checked)"
+          />
+          Mahābhūtas
+        </label>
+      </div>
+    </aside>
+    <svg width="100%" height="800" id="tattva-graph"></svg>
+  </div>
+</div>

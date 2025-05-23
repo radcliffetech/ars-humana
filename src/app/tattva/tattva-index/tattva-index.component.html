@@ -1,0 +1,32 @@
+<div class="space-y-6">
+  <nav class="text-sm text-gray-500 mb-4">
+    <a routerLink="/" class="hover:underline">Home</a>
+    <span class="mx-2">›</span>
+    <a routerLink="/tattva" class="hover:underline">Tattvas</a>
+  </nav>
+  <h1 class="text-3xl font-bold mb-6 text-gray-800">Tattvas (तत्त्व)</h1>
+  <div>
+    Try the
+    <a routerLink="/tattva-graph" class="text-brand-dark hover:text-brand-light">Tattva Graph</a>
+  </div>
+  <div *ngFor="let section of groupedOpinions" class="mb-8">
+    <h2 class="text-2xl font-bold text-blue-900 mb-4">{{ section.group }}</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div
+        *ngFor="let tattva of section.items"
+        class="p-4 border rounded-lg shadow hover:shadow-lg transition"
+      >
+        <a [routerLink]="['/tattva', tattva.id]" class="block">
+          <div class="flex items-center justify-between mb-2">
+            <h2 class="text-xl font-semibold text-gray-800">
+              {{ tattva.label.english }} ({{ tattva.label.devanagari }})
+            </h2>
+            <div class="text-4xl mb-2" [style.color]="tattva.color">{{ tattva.symbol }}</div>
+          </div>
+          <p class="text-gray-600 italic mb-1">{{ tattva.archetype }}</p>
+          <p class="text-gray-700 text-sm">{{ tattva.description }}</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
