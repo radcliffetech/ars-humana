@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { ActivatedRoute } from '@angular/router';
 import { GlossaryComponent } from './glossary.component';
+import { of } from 'rxjs';
 
 describe('GlossaryComponent', () => {
   let component: GlossaryComponent;
@@ -8,9 +10,21 @@ describe('GlossaryComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [GlossaryComponent]
-    })
-    .compileComponents();
+      imports: [GlossaryComponent],
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            params: of({}),
+            snapshot: {
+              paramMap: {
+                get: () => null,
+              },
+            },
+          },
+        },
+      ],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(GlossaryComponent);
     component = fixture.componentInstance;

@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { ActivatedRoute } from '@angular/router';
 import { TattvaGraphComponent } from './tattva-graph.component';
+import { of } from 'rxjs';
 
 describe('TattvaGraphComponent', () => {
   let component: TattvaGraphComponent;
@@ -8,9 +10,21 @@ describe('TattvaGraphComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TattvaGraphComponent]
-    })
-    .compileComponents();
+      imports: [TattvaGraphComponent],
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            params: of({}),
+            snapshot: {
+              paramMap: {
+                get: () => null,
+              },
+            },
+          },
+        },
+      ],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(TattvaGraphComponent);
     component = fixture.componentInstance;
